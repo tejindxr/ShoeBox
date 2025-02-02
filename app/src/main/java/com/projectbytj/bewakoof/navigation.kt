@@ -45,6 +45,12 @@ fun Nav(){
                 signup(tj)
             }
         }
+
+        composable("ShoePageNAV"){
+            topbar(tj){
+                ShoePage(tj)
+            }
+        }
     }
 
     startup(navController = tj)

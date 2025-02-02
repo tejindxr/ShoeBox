@@ -2,6 +2,7 @@ package com.projectbytj.bewakoof
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -87,13 +89,18 @@ fun TopAppBar(drawerState: DrawerState, scope: CoroutineScope , navController: N
             Icon(painter =  painterResource(R.drawable.menu) , "menu" ,
                 modifier = Modifier.fillMaxHeight(0.7f).weight(0.1f))
         }
-
+        val interactionSource = remember { MutableInteractionSource() }
         Text(
             text = "ShoeBOX",
-            modifier = Modifier.weight(0.7f).clickable{
-                navController.navigate("mainNAV")
-            }.fillMaxHeight(0.8f)
-                .padding(start = 45.dp , top = 10.dp) ,
+            modifier = Modifier.weight(0.7f).clickable(
+                onClick = { navController.navigate("mainNAV") },
+                indication = null,  // Disables ripple effect
+                interactionSource = interactionSource // Prevents unwanted interactions
+            )
+            //{ navController.navigate("mainNAV") }
+                .fillMaxHeight(0.8f)
+                .padding(start = 45.dp , top = 10.dp)
+                ,
             fontSize = 25.sp ,
             textAlign = TextAlign.Center
         )

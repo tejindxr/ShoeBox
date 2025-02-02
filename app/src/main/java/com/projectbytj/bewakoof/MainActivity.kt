@@ -32,7 +32,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-           Nav()
+          Nav()
+
         }
     }
 }
@@ -41,7 +42,7 @@ fun startup(navController: NavController){
     var effect by remember { mutableStateOf(true) }
 
     LaunchedEffect(key1 = true){
-        delay(1700)
+        delay(1500)
         effect = false
     }
     if (effect){
@@ -49,9 +50,15 @@ fun startup(navController: NavController){
     }
     else{
 
-        navController.navigate("mainNAV") {
-            popUpTo("mainNAV") { inclusive = true }
+        navController.navigate("ShoePageNAV") {
+           // popUpTo("mainNAV") { inclusive = true }
+
+
+
+
+
         }
+
 
 
     }
