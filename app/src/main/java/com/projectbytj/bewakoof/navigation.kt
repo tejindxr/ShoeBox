@@ -1,6 +1,7 @@
 package com.projectbytj.bewakoof
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.ViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -12,14 +13,14 @@ data class  destination(
 
 
 @Composable
-fun Nav(){
+fun Nav(viewModel: PageLink){
 
 
     val tj = rememberNavController()
     NavHost(navController = tj , startDestination = "mainNAV"){
         composable("mainNAV"){
             topbar(tj){
-                homescreen(tj)
+                homescreen(tj )
             }
         }
         composable("homeNAV"){
@@ -27,17 +28,17 @@ fun Nav(){
         }
         composable("womenNAV"){
             topbar(tj){
-                women(tj)
+                women(tj, viewModel)
             }
         }
         composable("childNAV"){
             topbar(tj){
-                child(tj)
+                child(tj,viewModel)
             }
         }
         composable("menNAV"){
            topbar(tj ){
-               men(tj)
+               men(tj , viewModel)
            }
         }
         composable("profileNAV"){
@@ -48,7 +49,7 @@ fun Nav(){
 
         composable("ShoePageNAV"){
             topbar(tj){
-                ShoePage(tj)
+                ShoePage(tj, viewModel)
             }
         }
     }

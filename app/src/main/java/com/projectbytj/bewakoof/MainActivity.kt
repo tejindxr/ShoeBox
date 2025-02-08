@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 
@@ -31,8 +32,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-          Nav()
+            val viewModel: PageLink = viewModel()
+            Nav( viewModel)
 
         }
     }
@@ -50,7 +51,7 @@ fun startup(navController: NavController){
     }
     else{
 
-        navController.navigate("ShoePageNAV") {
+        navController.navigate("mainNAV") {
            // popUpTo("mainNAV") { inclusive = true }
 
 

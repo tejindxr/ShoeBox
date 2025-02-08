@@ -51,6 +51,7 @@ android {
 
 dependencies {
 
+    implementation(libs.play.services.analytics.impl)
     val nav_version = "2.7.7"
 
 
@@ -59,6 +60,11 @@ dependencies {
     implementation("androidx.compose.material:material")
     implementation("androidx.compose.material3:material3:1.0.0-alpha13")
     implementation("androidx.navigation:navigation-compose:2.5.0-alpha05")
+
+
+    
+    // for Link page obserAsstate()
+    implementation ("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 
 
     implementation(libs.androidx.core.ktx)
