@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "204376562525",
+    "project_id": "shoebox-4bf76",
+    "storage_bucket": "shoebox-4bf76.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204376562525:android:b748b86c5b3109780e26b4",
+        "android_client_info": {
+          "package_name": "com.projectbytj.bewakoof"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB0XqU_4qllCh61xcLyuE6g5ZLnJXgVFo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

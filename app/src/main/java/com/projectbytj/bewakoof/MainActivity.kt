@@ -75,7 +75,7 @@ fun splash(){
             modifier = Modifier.fillMaxSize(),
             contentAlignment = androidx.compose.ui.Alignment.Center
         ) {
-            Image(painter = painterResource(R.drawable.s2) , "splash",
+            Image(painter = painterResource(R.drawable.background_blue_orange) , "splash",
                 modifier = Modifier.fillMaxSize()
               , contentScale = ContentScale.Crop )
 

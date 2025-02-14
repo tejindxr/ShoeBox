@@ -41,9 +41,10 @@ fun Nav(viewModel: PageLink){
                men(tj , viewModel)
            }
         }
-        composable("profileNAV"){
+
+        composable("likepageNAV"){
             topbar(tj){
-                signup(tj)
+                likepage(tj , viewModel)
             }
         }
 
@@ -52,6 +53,31 @@ fun Nav(viewModel: PageLink){
                 ShoePage(tj, viewModel)
             }
         }
+
+        composable("cartNAV") {
+            topbar(tj) {
+                cart(tj, viewModel)
+            }
+        }
+
+        composable("signinNAV") {
+            topbar(tj) {
+                signin(tj)
+            }
+        }
+
+        composable("signupNAV") {
+            topbar(tj) {
+                signup(tj)
+            }
+        }
+        composable("proflieNAV") {
+            topbar(tj) {
+                ProfileScreen(tj)
+            }
+        }
+
+
     }
 
     startup(navController = tj)

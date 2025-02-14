@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -50,8 +51,9 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.play.services.analytics.impl)
+    implementation ("com.google.firebase:firebase-auth:22.1.0")
+   implementation(libs.play.services.analytics.impl)
+ //   implementation(libs.firebase.auth)
     val nav_version = "2.7.7"
 
 

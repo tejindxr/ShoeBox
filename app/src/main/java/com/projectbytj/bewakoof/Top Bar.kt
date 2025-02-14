@@ -1,6 +1,7 @@
 package com.projectbytj.bewakoof
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.DrawerDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
@@ -23,6 +25,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -48,7 +52,12 @@ fun topbar(navController: NavController, content: @Composable () -> Unit){
     ModalNavigationDrawer(
         drawerState = drawerState ,
         drawerContent = {
-            ModalDrawerSheet {
+            ModalDrawerSheet(modifier = Modifier.fillMaxWidth(0.65f)
+                , drawerContainerColor = Color.White
+
+
+            ) {
+
                 drawerCard(navController)
             }
         }
@@ -58,8 +67,10 @@ fun topbar(navController: NavController, content: @Composable () -> Unit){
                 TopAppBar(drawerState, scope , navController)
             }
         ){ padding -> padding
-            Box(modifier = Modifier.fillMaxSize().padding(top= 60.dp)) {
-            Image(painter = painterResource(R.drawable.s2) , "splash",
+            Box(modifier = Modifier.fillMaxSize()
+                .padding(top= 60.dp)
+            ) {
+            Image(painter = painterResource(R.drawable.background_blue_orange) , "splash",
                 modifier = Modifier.fillMaxSize()
                 , contentScale = ContentScale.Crop )
 
@@ -108,7 +119,7 @@ fun TopAppBar(drawerState: DrawerState, scope: CoroutineScope , navController: N
 
         IconButton(
             onClick = {
-
+                navController.navigate("likepageNAV")
             }
         ){
             Icon(painter = painterResource(R.drawable.heart) ,"heart" ,
@@ -117,7 +128,7 @@ fun TopAppBar(drawerState: DrawerState, scope: CoroutineScope , navController: N
 
         IconButton(
             onClick = {
-                    navController.navigate("profileNAV")
+                    navController.navigate("proflieNAV")
             }
         ){
             Icon(painter = painterResource(R.drawable.user) ,"user" ,
