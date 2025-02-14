@@ -7,10 +7,14 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material3.DrawerDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
@@ -43,6 +47,8 @@ fun topbar(navController: NavController, content: @Composable () -> Unit){
 
     val scope = rememberCoroutineScope()
 
+    val bottomPadding = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    val topPadding = WindowInsets.statusBars.asPaddingValues().calculateTopPadding() // Get dynamic top padding
 
 
 
@@ -66,9 +72,12 @@ fun topbar(navController: NavController, content: @Composable () -> Unit){
             topBar = {
                 TopAppBar(drawerState, scope , navController)
             }
+
         ){ padding -> padding
             Box(modifier = Modifier.fillMaxSize()
-                .padding(top= 60.dp)
+                .padding(top= 60.dp,
+                        bottom = bottomPadding
+                )
             ) {
             Image(painter = painterResource(R.drawable.background_blue_orange) , "splash",
                 modifier = Modifier.fillMaxSize()

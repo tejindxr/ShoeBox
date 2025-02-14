@@ -1,5 +1,6 @@
 package com.projectbytj.bewakoof
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -10,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -36,6 +38,11 @@ fun likepage(navController: NavController, viewModel: PageLink) {
 
         heading("Liked ")
 
+        if (Liked.isEmpty() ){
+            Image(painterResource(R.drawable.liked_doodle), "Liked doodle",
+                modifier = Modifier.alpha(0.5f))
+        }
+        else{
         LazyVerticalGrid(GridCells.Fixed(2)){
 
             items(Liked){item ->
@@ -43,7 +50,10 @@ fun likepage(navController: NavController, viewModel: PageLink) {
 
             }
         }
+
+        }
     }
+
 }
 
 

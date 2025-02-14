@@ -53,9 +53,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 var Cart = mutableStateListOf<product>(
-    product("Converse 1", R.drawable.k2, "Kids", 12999, "Converse", "Kids" , null),
-    product("Con high end", R.drawable.k3, "Kids", 9999, "Converse", "Kids" , null),
-    product("Lows Co", R.drawable.k4, "Kids", 4999, "Converse", "Kids" , null),
 
     )
 
